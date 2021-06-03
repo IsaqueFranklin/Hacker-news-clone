@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useFormValidation from "./useFormValidation";
 import validateLogin from './validateLogin'
-import firebase from '../../firebase'
+import firebase from '../../firebase/firebase'
 
 const INITIAL_STATE = {
   name: "",
@@ -12,7 +12,7 @@ const INITIAL_STATE = {
 
 function Login(props) {
 
-  const { handleSubmit, handleChange, handleBlur, errors, isSubmitting, values } = useFormValidation(INITIAL_STATE, validateLogin, authenticateUser)
+  const { handleChange, handleSubmit, handleBlur, errors, isSubmitting, values } = useFormValidation(INITIAL_STATE, validateLogin, authenticateUser)
   const [login, setLogin] = useState(true)
 
   async function authenticateUser() {
