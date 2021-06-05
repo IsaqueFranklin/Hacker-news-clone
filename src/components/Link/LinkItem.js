@@ -20,7 +20,7 @@ function LinkItem({ link, index, showCount, history }) {
           const vote = { votedBy: { id: user.uid, name: user.displayName } }
           const updatedVotes = [...previousVotes, vote]
           const voteCount = updatedVotes.length //apagar
-          voteRef.update({ votes: updatedVotes }) //adicionar voteCount
+          voteRef.update({ votes: updatedVotes, voteCount }) //adicionar voteCount
         }
       })
     }
@@ -49,7 +49,7 @@ function LinkItem({ link, index, showCount, history }) {
           <span className="link">({getDomain(link.url)})</span>
         </div>
         <div className="f6 lh-copy gray">
-          {link.votes.length} votes by {link.postedBy.name} {distanceInWordsToNow(link.created)}
+          {link.voteCount} votes by {link.postedBy.name} {distanceInWordsToNow(link.created)}
           {/* or link.votesCount */} 
           {" | "}
           <Link to={`/link/${link.id}`} >
